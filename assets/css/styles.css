@@ -78,6 +78,49 @@ main.container {
   padding-bottom: 80px;
 }
 
+/* Profile header with photo */
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.profile-text {
+  flex: 1;
+}
+
+.profile-text h1 {
+  margin-bottom: 0.5rem;
+}
+
+.profile-text .subtitle {
+  margin-bottom: 0;
+}
+
+@media (max-width: 600px) {
+  .profile-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
 h1 {
   font-size: 2.2rem;
   letter-spacing: -0.02em;
