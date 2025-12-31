@@ -213,16 +213,16 @@ hr {
 /* Timeline cards with visual connector */
 .timeline-cards {
   position: relative;
-  margin: 2.5rem 0;
-  padding-left: 2.5rem;
+  margin: 2rem 0;
+  padding-left: 2rem;
 }
 
 .timeline-cards::before {
   content: '';
   position: absolute;
-  left: 0.625rem;
-  top: 1.25rem;
-  bottom: 1.25rem;
+  left: 0.5rem;
+  top: 1rem;
+  bottom: 1rem;
   width: 2px;
   background: linear-gradient(to bottom, var(--accent) 0%, var(--border) 100%);
   opacity: 0.3;
@@ -232,18 +232,18 @@ hr {
   position: relative;
   padding-left: 0;
   border: none;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.25rem;
 }
 
 .timeline-cards .timeline-item::before {
   content: '';
   position: absolute;
-  left: -1.875rem;
-  top: 1.5rem;
-  width: 0.75rem;
-  height: 0.75rem;
+  left: -1.5rem;
+  top: 1.25rem;
+  width: 0.625rem;
+  height: 0.625rem;
   background: var(--accent);
-  border: 3px solid var(--bg);
+  border: 2.5px solid var(--bg);
   border-radius: 50%;
   box-shadow: 0 0 0 2px var(--border);
   z-index: 2;
@@ -253,9 +253,9 @@ hr {
 .timeline-cards .timeline-item::after {
   content: '';
   position: absolute;
-  left: -1.5rem;
-  top: 1.65rem;
-  width: 1.25rem;
+  left: -1.25rem;
+  top: 1.4rem;
+  width: 1rem;
   height: 2px;
   background: var(--border);
   transition: background 0.3s ease;
@@ -264,24 +264,24 @@ hr {
 .timeline-card {
   display: block;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   background: var(--bg);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 
 .timeline-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   border-color: var(--accent);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-card:hover ~ .timeline-item::before,
 .timeline-item:has(.timeline-card:hover)::before {
   background: var(--accent);
-  box-shadow: 0 0 0 4px var(--border), 0 0 20px var(--accent);
-  transform: scale(1.3);
+  box-shadow: 0 0 0 4px var(--border), 0 0 16px var(--accent);
+  transform: scale(1.2);
 }
 
 .timeline-item:has(.timeline-card:hover)::after {
@@ -290,17 +290,16 @@ hr {
 
 .timeline-card[open] {
   border-color: var(--accent);
-  box-shadow: 0 8px 16px rgba(37, 99, 235, 0.15);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.12);
 }
 
 .timeline-card summary {
   list-style: none;
   cursor: pointer;
-  padding: 1.25rem 1.5rem;
+  padding: 0.875rem 1rem;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.875rem;
   user-select: none;
   font-weight: 600;
   transition: background-color 0.2s ease;
@@ -318,19 +317,31 @@ hr {
   content: '';
 }
 
+.company-logo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 6px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: color-mix(in srgb, var(--border) 30%, transparent);
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+}
+
 .timeline-card summary .card-title {
   flex: 1;
+  min-width: 0;
 }
 
 .timeline-card summary .card-title h3 {
-  margin: 0 0 0.35rem 0;
-  font-size: 1.15rem;
-  line-height: 1.4;
+  margin: 0 0 0.15rem 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
   color: var(--fg);
 }
 
 .timeline-card summary .card-meta {
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   color: var(--muted);
   font-weight: 400;
   margin: 0;
@@ -339,10 +350,10 @@ hr {
 .timeline-card summary::after {
   content: '▾';
   color: var(--accent);
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex-shrink: 0;
-  margin-top: 0.1rem;
+  margin-left: auto;
 }
 
 .timeline-card[open] summary::after {
@@ -355,15 +366,16 @@ hr {
 }
 
 .timeline-card .card-body {
-  padding: 1.25rem 1.5rem;
-  line-height: 1.7;
+  padding: 0.875rem 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
   animation: slideDown 0.3s ease;
 }
 
 @keyframes slideDown {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
@@ -372,7 +384,7 @@ hr {
 }
 
 .timeline-card .card-body p {
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .timeline-card .card-body p:last-child {
@@ -383,9 +395,9 @@ hr {
   color: var(--accent);
   font-weight: 600;
   display: block;
-  margin-top: 1rem;
-  margin-bottom: 0.4rem;
-  font-size: 0.95rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
 }
 
 .timeline-card .card-body strong:first-child {
@@ -393,12 +405,12 @@ hr {
 }
 
 .timeline-card .card-body ul {
-  margin: 0.5rem 0;
-  padding-left: 1.5rem;
+  margin: 0.4rem 0;
+  padding-left: 1.4rem;
 }
 
 .timeline-card .card-body li {
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.35rem;
 }
 
 .timeline-card:focus,
