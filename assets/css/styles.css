@@ -210,4 +210,67 @@ hr {
   margin-bottom: 0.4rem;
 }
 
+.timeline-cards .timeline-item {
+  padding-left: 0;
+  border: none;
+}
+
+.timeline-card {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--bg) 96%, black 0%);
+  transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
+}
+
+.timeline-card:hover {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+}
+
+.timeline-card[open] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--bg) 92%, black 0%);
+}
+
+.timeline-card summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.timeline-card summary::-webkit-details-marker {
+  display: none;
+}
+
+.timeline-card summary::after {
+  content: '▾';
+  color: var(--muted);
+  transition: transform 160ms ease;
+}
+
+.timeline-card[open] summary::after {
+  transform: rotate(-180deg);
+}
+
+.timeline-card h3 {
+  margin: 0;
+}
+
+.timeline-card .card-body {
+  padding: 0 16px 14px 16px;
+}
+
+.timeline-card:focus,
+.timeline-card:focus-visible,
+.timeline-card summary:focus,
+.timeline-card summary:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  outline-offset: 2px;
+}
+
 
