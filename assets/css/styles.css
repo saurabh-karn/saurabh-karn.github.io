@@ -210,59 +210,27 @@ hr {
   margin-bottom: 0.4rem;
 }
 
-/* Timeline cards with visual connector */
+/* Timeline cards as tile grid */
 .timeline-cards {
-  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
   margin: 2rem 0;
-  padding-left: 2rem;
-}
-
-.timeline-cards::before {
-  content: '';
-  position: absolute;
-  left: 0.5rem;
-  top: 1rem;
-  bottom: 1rem;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--accent) 0%, var(--border) 100%);
-  opacity: 0.3;
+  padding: 0;
+  list-style: none;
 }
 
 .timeline-cards .timeline-item {
   position: relative;
-  padding-left: 0;
+  padding: 0;
   border: none;
-  margin-bottom: 1.25rem;
-}
-
-.timeline-cards .timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -1.5rem;
-  top: 1.25rem;
-  width: 0.625rem;
-  height: 0.625rem;
-  background: var(--accent);
-  border: 2.5px solid var(--bg);
-  border-radius: 50%;
-  box-shadow: 0 0 0 2px var(--border);
-  z-index: 2;
-  transition: all 0.3s ease;
-}
-
-.timeline-cards .timeline-item::after {
-  content: '';
-  position: absolute;
-  left: -1.25rem;
-  top: 1.4rem;
-  width: 1rem;
-  height: 2px;
-  background: var(--border);
-  transition: background 0.3s ease;
+  margin: 0;
 }
 
 .timeline-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   border: 1px solid var(--border);
   border-radius: 10px;
   background: var(--bg);
@@ -272,20 +240,9 @@ hr {
 }
 
 .timeline-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
   border-color: var(--accent);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-card:hover ~ .timeline-item::before,
-.timeline-item:has(.timeline-card:hover)::before {
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--border), 0 0 16px var(--accent);
-  transform: scale(1.2);
-}
-
-.timeline-item:has(.timeline-card:hover)::after {
-  background: var(--accent);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .timeline-card[open] {
