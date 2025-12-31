@@ -1,0 +1,25 @@
+---
+title: Blog
+layout: default
+description: Writing on AI systems, digital public infrastructure, and product building.
+---
+
+<h1>Blog</h1>
+<p class="subtitle">Writing on AI systems, digital public infrastructure, and product building.</p>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li>
+      <a class="title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+      <div class="post-excerpt">{{ post.excerpt | strip_html | truncate: 180 }}</div>
+      <div class="post-meta">
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        {% if post.tags and post.tags.size > 0 %}
+          • {% for tag in post.tags %}<span class="tag">{{ tag }}</span>{% unless forloop.last %} {% endunless %}{% endfor %}
+        {% endif %}
+      </div>
+    </li>
+  {% endfor %}
+</ul>
+
+

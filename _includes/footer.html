@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+    <p class="muted">
+      <a href="mailto:{{ site.author.email }}">Email</a> ·
+      <a href="https://github.com/{{ site.author.github }}">GitHub</a> ·
+      <a href="https://www.linkedin.com/in/{{ site.author.linkedin }}">LinkedIn</a> ·
+      <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </p>
+  </div>
+</footer>
+
+

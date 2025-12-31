@@ -1,0 +1,30 @@
+title: "Saurabh Karn"
+tagline: "Engineer • Founder • AI & Digital Public Infrastructure"
+description: "Engineer, Founder, AI & Digital Public Infrastructure"
+url: "https://saurabh-karn.github.io"
+baseurl: ""
+permalink: /blog/:year/:month/:day/:title/
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+
+author:
+  name: "Saurabh Karn"
+  email: "karnsaurabhkumar@gmail.com"
+  github: "saurabh-karn"
+  linkedin: "saurabh-karn-466a9535"
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: default
+
+
