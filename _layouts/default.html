@@ -18,6 +18,23 @@
     {{ content }}
   </main>
   {% include footer.html %}
+  <script>
+    // Ensure only one timeline card is open at a time
+    document.addEventListener('DOMContentLoaded', function() {
+      const cards = document.querySelectorAll('.timeline-card');
+      cards.forEach(card => {
+        card.addEventListener('toggle', function() {
+          if (this.open) {
+            cards.forEach(other => {
+              if (other !== this && other.open) {
+                other.removeAttribute('open');
+              }
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
 
