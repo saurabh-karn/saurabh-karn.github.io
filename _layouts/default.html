@@ -8,6 +8,7 @@
   <meta name="color-scheme" content="light dark" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} feed" href="{{ '/feed.xml' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/timeline-modal.css' | relative_url }}" />
 
   <link rel="me" href="https://github.com/{{ site.author.github }}" />
   <link rel="me" href="https://www.linkedin.com/in/{{ site.author.linkedin }}" />
@@ -19,19 +20,50 @@
   </main>
   {% include footer.html %}
   <script>
-    // Ensure only one timeline card is open at a time
+    // Career timeline modal functionality
     document.addEventListener('DOMContentLoaded', function() {
-      const cards = document.querySelectorAll('.timeline-card');
-      cards.forEach(card => {
-        card.addEventListener('toggle', function() {
-          if (this.open) {
-            cards.forEach(other => {
-              if (other !== this && other.open) {
-                other.removeAttribute('open');
-              }
-            });
+      const modal = document.getElementById('career-modal');
+      const tiles = document.querySelectorAll('.timeline-tile');
+      const closeBtn = modal?.querySelector('.modal-close');
+      const overlay = modal?.querySelector('.modal-overlay');
+      const careerDataEl = document.getElementById('career-data');
+      
+      if (!modal || !careerDataEl) return;
+      
+      const careerData = JSON.parse(careerDataEl.textContent);
+      
+      // Open modal
+      tiles.forEach(tile => {
+        tile.addEventListener('click', function() {
+          const modalId = this.dataset.modal;
+          const data = careerData[modalId];
+          
+          if (data) {
+            modal.querySelector('.modal-logo').src = data.logo;
+            modal.querySelector('.modal-logo').alt = data.title;
+            modal.querySelector('.modal-title').textContent = data.title;
+            modal.querySelector('.modal-meta').textContent = data.meta;
+            modal.querySelector('.modal-body').innerHTML = data.content;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
           }
         });
+      });
+      
+      // Close modal
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      
+      closeBtn?.addEventListener('click', closeModal);
+      overlay?.addEventListener('click', closeModal);
+      
+      // Close on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+          closeModal();
+        }
       });
     });
   </script>
