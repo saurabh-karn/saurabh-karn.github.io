@@ -3,7 +3,7 @@ tagline: "Engineer • Founder • AI & Digital Public Infrastructure"
 description: "Engineer, Founder, AI & Digital Public Infrastructure"
 url: "https://saurabh-karn.github.io"
 baseurl: ""
-permalink: /blog/:year/:month/:day/:title/
+permalink: /projects/:year/:month/:day/:title/
 markdown: kramdown
 highlighter: rouge
 plugins:
